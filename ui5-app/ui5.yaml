@@ -1,0 +1,12 @@
+specVersion: "3.1"
+metadata:
+  name: sap-ui5-rap-excel-upload
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: webapp
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression

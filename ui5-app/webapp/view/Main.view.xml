@@ -1,0 +1,76 @@
+<mvc:View
+  controllerName="zexcelupload.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:u="sap.ui.unified"
+  xmlns:core="sap.ui.core"
+>
+  <App id="app">
+    <pages>
+      <Page title="Excel Upload to SAP RAP">
+        <content>
+          <VBox class="sapUiSmallMargin">
+            <Panel headerText="Upload Excel File" class="sapUiResponsivePadding">
+              <VBox>
+                <u:FileUploader
+                  id="fileUploader"
+                  width="100%"
+                  sameFilenameAllowed="false"
+                  buttonText="Choose Excel File"
+                  change="onFileUploaderChange"
+                  fileType="xlsx,xls"
+                  multiple="false"
+                  placeholder="Select XLSX file"/>
+
+                <Button
+                  id="uploadBtn"
+                  text="Upload to RAP"
+                  type="Emphasized"
+                  press="onUploadToRAP"
+                  class="sapUiSmallMarginTop"/>
+              </VBox>
+            </Panel>
+
+            <Panel headerText="Validation Summary" class="sapUiResponsivePadding">
+              <Text text="{viewModel>/message}"/>
+              <HBox class="sapUiSmallMarginTop">
+                <ObjectStatus text="Rows loaded" state="None" icon="sap-icon://download-from-cloud" />
+                <ObjectNumber class="sapUiTinyMarginBegin" number="{viewModel>/uploadedCount}" />
+              </HBox>
+              <HBox class="sapUiSmallMarginTop">
+                <ObjectStatus text="Errors" state="Error" icon="sap-icon://alert" />
+                <ObjectNumber class="sapUiTinyMarginBegin" number="{viewModel>/errorCount}" />
+              </HBox>
+            </Panel>
+
+            <Table
+              id="uploadTable"
+              items="{viewModel>/rows}"
+              noDataText="No rows uploaded yet"
+              growing="true"
+              growingThreshold="20">
+              <columns>
+                <Column><Text text="Customer ID" /></Column>
+                <Column><Text text="Material" /></Column>
+                <Column><Text text="Quantity" /></Column>
+                <Column><Text text="Amount" /></Column>
+                <Column><Text text="Status" /></Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{viewModel>customer_id}" />
+                    <Text text="{viewModel>material_no}" />
+                    <Text text="{viewModel>quantity}" />
+                    <Text text="{viewModel>amount}" />
+                    <Text text="{viewModel>status}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </VBox>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

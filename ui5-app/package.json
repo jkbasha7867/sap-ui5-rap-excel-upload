@@ -1,0 +1,12 @@
+{
+  "name": "sap-ui5-rap-excel-upload",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve --open index.html",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.11.0"
+  }
+}

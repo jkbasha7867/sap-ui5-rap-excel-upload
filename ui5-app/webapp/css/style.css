@@ -1,0 +1,12 @@
+/* Optional project styling */
+.sapMPage {
+  background: #f5f7fa;
+}
+
+.sapMPanel {
+  margin-bottom: 1rem;
+}
+
+.sapMListTblCell {
+  vertical-align: middle;
+}

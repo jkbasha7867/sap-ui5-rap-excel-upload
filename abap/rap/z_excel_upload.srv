@@ -1,0 +1,6 @@
+@EndUserText.label: 'Excel Upload service'
+@ObjectModel.leadingEntityName: 'Z_I_EXCEL_UPLOAD'
+
+define service ZEXCEL_UPLOAD_SRV {
+  expose Z_I_EXCEL_UPLOAD as ExcelUpload;
+}

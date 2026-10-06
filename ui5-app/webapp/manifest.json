@@ -1,0 +1,77 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "id": "zexcelupload",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "Excel Upload",
+    "description": "Excel upload sample for UI5 and SAP RAP",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZEXCEL_UPLOAD_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "zexcelupload.view.Main",
+      "type": "XML",
+      "async": true
+    },
+    "dependencies": {
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.unified": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "useBatch": true,
+          "refreshAfterChange": false
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "zexcelupload.view",
+        "controlId": "app",
+        "controlAggregation": "pages"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "main",
+          "target": "main"
+        }
+      ],
+      "targets": {
+        "main": {
+          "viewName": "Main",
+          "viewLevel": 1
+        }
+      }
+    }
+  }
+}
